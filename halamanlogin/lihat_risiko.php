@@ -46,6 +46,7 @@ if (!$risiko) {
             <h1>Detail Risiko</h1>
             <form>
                 <!-- Menampilkan data -->
+                <h3>Informasi Risiko</h3>
                 <div class="form-group">
                     <label for="tujuan">Tujuan:</label>
                     <input type="text" id="tujuan" class="form-control" value="<?php echo htmlspecialchars($risiko['tujuan']); ?>" readonly>
@@ -74,6 +75,8 @@ if (!$risiko) {
                     <label for="penyebab_risiko">Penyebab Risiko:</label>
                     <textarea id="penyebab_risiko" class="form-control" readonly><?php echo htmlspecialchars($risiko['penyebab_risiko']); ?></textarea>
                 </div>
+
+                <h3>Potensi Kerugian</h3>
                 <div class="form-group">
                     <label for="akibat_qualitative">Akibat Qualitative:</label>
                     <textarea id="akibat_qualitative" class="form-control" readonly><?php echo htmlspecialchars($risiko['akibat_qualitative']); ?></textarea>
@@ -82,6 +85,8 @@ if (!$risiko) {
                     <label for="akibat_finansial">Akibat Finansial:</label>
                     <textarea id="akibat_finansial" class="form-control" readonly><?php echo htmlspecialchars($risiko['akibat_finansial']); ?></textarea>
                 </div>
+
+                <h3>Informasi Terkait</h3>
                 <div class="form-group">
                     <label for="pemilik_risiko">Pemilik Risiko:</label>
                     <input type="text" id="pemilik_risiko" class="form-control" value="<?php echo htmlspecialchars($risiko['pemilik_risiko']); ?>" readonly>
@@ -90,6 +95,8 @@ if (!$risiko) {
                     <label for="departemen">Departemen:</label>
                     <input type="text" id="departemen" class="form-control" value="<?php echo htmlspecialchars($risiko['departemen']); ?>" readonly>
                 </div>
+
+                <h3>Penilaian Risiko</h3>
                 <div class="form-group">
                     <label for="inherent_likelihood">Inherent Likelihood:</label>
                     <input type="number" id="inherent_likelihood" class="form-control" value="<?php echo htmlspecialchars($risiko['inherent_likelihood']); ?>" readonly>
@@ -97,6 +104,24 @@ if (!$risiko) {
                 <div class="form-group">
                     <label for="inherent_impact">Inherent Impact:</label>
                     <input type="number" id="inherent_impact" class="form-control" value="<?php echo htmlspecialchars($risiko['inherent_impact']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                <label for="inherent_risk">Inherent Risk</label>
+                <input type="text" id="inherent_risk" class="form-control" value="<?php echo htmlspecialchars($risiko['inherent_likelihood'] * $risiko['inherent_impact']); ?>" readonly>
+                </div>
+
+                <h3>Pengendalian</h3>
+                <div class="form-group">
+                    <label for="control">Control:</label>
+                    <input type="text" id="control" class="form-control" value="<?php echo htmlspecialchars($risiko['control']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="memadai">Memadai:</label>
+                    <input type="text" id="memadai" class="form-control" value="<?php echo htmlspecialchars($risiko['memadai']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <input type="text" id="status" class="form-control" value="<?php echo htmlspecialchars($risiko['status']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="residual_likelihood">Residual Likelihood:</label>
@@ -107,6 +132,20 @@ if (!$risiko) {
                     <input type="number" id="residual_impact" class="form-control" value="<?php echo htmlspecialchars($risiko['residual_impact']); ?>" readonly>
                 </div>
                 <div class="form-group">
+                    <label for="residual_risk">Residual Risk</label>
+                    <input type="text" id="residual_risk" class="form-control" value="<?php echo htmlspecialchars($risiko['residual_likelihood'] * $risiko['residual_impact']); ?>" readonly>
+                </div>
+
+                <h3>Penanganan</h3>
+                <div class="form-group">
+                    <label for="mitigasi">Tindakan Mitigasi</label>
+                    <input type="text" id="mitigasi" class="form-control" value="<?php echo htmlspecialchars($risiko['mitigasi']); ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="perlakuan">Perlakuan:</label>
+                    <input type="text" id="perlakuan" class="form-control" value="<?php echo htmlspecialchars($risiko['perlakuan']); ?>" readonly>
+                </div>
+                <div class="form-group">
                     <label for="mitigasi_likelihood">Mitigasi Likelihood:</label>
                     <input type="number" id="mitigasi_likelihood" class="form-control" value="<?php echo htmlspecialchars($risiko['mitigasi_likelihood']); ?>" readonly>
                 </div>
@@ -115,16 +154,8 @@ if (!$risiko) {
                     <input type="number" id="mitigasi_impact" class="form-control" value="<?php echo htmlspecialchars($risiko['mitigasi_impact']); ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label for="control">Control:</label>
-                    <input type="text" id="control" class="form-control" value="<?php echo htmlspecialchars($risiko['control']); ?>" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="status">Status:</label>
-                    <input type="text" id="status" class="form-control" value="<?php echo htmlspecialchars($risiko['status']); ?>" readonly>
-                </div>
-                <div class="form-group">
-                    <label for="perlakuan">Perlakuan:</label>
-                    <input type="text" id="perlakuan" class="form-control" value="<?php echo htmlspecialchars($risiko['perlakuan']); ?>" readonly>
+                    <label for="mitigasi_risk">Mitigasi Risk</label>
+                    <input type="text" id="mitigasi_risk" class="form-control" value="<?php echo htmlspecialchars($risiko['mitigasi_likelihood'] * $risiko['mitigasi_impact']); ?>" readonly>
                 </div>
                 <a type="submit" href="layout.php" class="btn btn-primary">Kembali</a>
             </form>

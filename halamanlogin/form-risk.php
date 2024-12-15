@@ -70,9 +70,6 @@
 
                 <label for="inherentImpact">Inherent Impact</label>
                 <input type="number" id="inherentImpact" name="inherentImpact" value="0">
-                <!-- Hasil Perhitungan Inherent Risk -->
-                <label for="inherentRisk">Inherent Risk</label>
-                <input type="text" id="inherentRisk" name="inherentRisk" readonly>
 
                 <h3>Pengendalian</h3>
                 <label for="control">Control</label>
@@ -102,11 +99,7 @@
                 <label for="residualImpact">Residual Impact</label>
                 <input type="number" id="residualImpact" name="residualImpact" value="0">
 
-                <!-- Hasil Perhitungan Residual Risk -->
-                <label for="residualRisk">Residual Risk</label>
-                <input type="text" id="residualRisk" name="residualRisk" readonly>
                 <h3>Penanganan</h3>
-
                 <label for="mitigasi">Tindakan Mitigasi</label>
                 <textarea id="mitigasi" name="mitigasi"></textarea>
 
@@ -122,11 +115,6 @@
 
                 <label for="mitigasiImpact">Mititgasi Impact</label>
                 <input type="number" id="mitigasiImpact" name="mitigasiImpact" value="0">
-
-                <!-- Hasil Perhitungan Mitigasi Risk -->
-    
-                <label for="mitigasiRisk">Mitigasi Risk</label>
-                <input type="number" id="mitigasiRisk" name="mitigasiRisk" readonly>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
         </div>

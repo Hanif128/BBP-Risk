@@ -14,13 +14,19 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 
 if ($stmt->execute()) {
-    echo "Data berhasil dihapus!";
+    echo "<script>
+        alert('Data berhasil dihapus!');
+        window.location.href = 'layout.php';
+    </script>";
 } else {
-    echo "Terjadi kesalahan!";
+    echo "<script>
+        alert('Error: " . $conn->error . "');
+        window.history.back();
+    </script>";
 }
 
 $stmt->close();
 $conn->close();
-header("Location: man-risk.php"); // Redirect kembali ke halaman manajemen risiko
+
 exit;
 ?>

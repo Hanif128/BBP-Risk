@@ -48,9 +48,15 @@ $inherentLikelihood, $inherentImpact, $residualLikelihood, $residualImpact,
 $mitigasiLikelihood, $mitigasiImpact, '$control', '$memadai', '$status', '$mitigasi', '$perlakuan')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Data berhasil disimpan!";
+    echo "<script>
+        alert('Data berhasil disimpan!');
+        window.location.href = 'layout.php';
+    </script>";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<script>
+        alert('Error: " . $conn->error . "');
+        window.history.back();
+    </script>";
 }
 
 $conn->close();
