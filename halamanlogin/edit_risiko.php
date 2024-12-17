@@ -291,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="mitigasiRisk" name="mitigasiRisk" value="<?php echo htmlspecialchars($risiko['mitigasi_likelihood'] * $risiko['mitigasi_impact']); ?>" readonly>
 
             <div class="action-buttons">
-                <button type="submit">Update</button>
+                <button type="submit" href="lihat_risiko.php">Update</button>
                 <button type="button" onclick="window.location.href='layout.php';">Kembali</button>
             </div>
         </div>
