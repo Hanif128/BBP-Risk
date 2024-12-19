@@ -1,0 +1,145 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    background: linear-gradient(180deg, #1E3A8A, #3B82F6);
+    color: #fff;
+    width: 80px;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sidebar:hover {
+    width: 250px;
+}
+
+#sidebar .nav-link {
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#sidebar .nav-link:hover {
+    background-color: #2563EB;
+}
+
+#sidebar .nav-item span {
+    display: none;
+    margin-left: 10px;
+}
+
+#sidebar:hover .nav-item span {
+    display: inline;
+}
+/* Form style */
+.form-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea {
+    resize: vertical;
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-section img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#sidebar:hover .profile-section img {
+    width: 80px;
+    height: 80px;
+}
+
+#sidebar .profile-section span {
+    display: none;
+}
+
+#sidebar:hover .profile-section span {
+    display: block;
+    color: #E0E7FF;
+}
+
+#logout-link {
+    display: none;
+    margin-top: 10px;
+}
+
+#sidebar:hover #logout-link {
+    display: block;
+}
+
+/* Content Styles */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #F9FAFB;
+}
+
+.content h2 {
+    color: #1E3A8A;
+}
+
+.btn-primary {
+    background-color: #2563EB;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #1E3A8A;
+}
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
