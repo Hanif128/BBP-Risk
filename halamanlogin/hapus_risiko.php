@@ -16,7 +16,7 @@ $stmt->bind_param("i", $id);
 if ($stmt->execute()) {
     echo "<script>
         alert('Data berhasil dihapus!');
-        window.location.href = 'layout.php';
+        window.location.href = 'man-risk.php';
     </script>";
 } else {
     echo "<script>

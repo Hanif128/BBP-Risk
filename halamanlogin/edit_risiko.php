@@ -66,7 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if ($update_stmt->execute()) {
-            echo "Data berhasil diupdate!";
+            echo "<script>
+            alert('Data berhasil diupdate!');
+            window.location.href = 'man-risk.php';
+            </script>";
         } else {
             echo "Terjadi kesalahan!";
         }
@@ -212,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea id="akibatQualitative" name="akibatQualitative"><?php echo htmlspecialchars($risiko['akibat_qualitative']); ?></textarea>
 
             <label for="akibatFinansial">Akibat Finansial</label>
-            <textarea id="akibatFinansial" name="akibatFinansial"><?php echo htmlspecialchars($risiko['akibat_finansial']); ?></textarea>
+            <textarea type="number" id="akibatFinansial" name="akibatFinansial"><?php echo htmlspecialchars($risiko['akibat_finansial']); ?></textarea>
 
             <h3>Informasi Terkait</h3>
             <label for="pemilikRisiko">Pemilik Risiko</label>
@@ -291,8 +294,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" id="mitigasiRisk" name="mitigasiRisk" value="<?php echo htmlspecialchars($risiko['mitigasi_likelihood'] * $risiko['mitigasi_impact']); ?>" readonly>
 
             <div class="action-buttons">
-                <button type="submit" href="lihat_risiko.php">Update</button>
-                <button type="button" onclick="window.location.href='layout.php';">Kembali</button>
+                <button type="submit" href="man-risk.php">Update</button>
+                <button type="button" onclick="window.location.href='man-risk.php';">Kembali</button>
             </div>
         </div>
         </form>

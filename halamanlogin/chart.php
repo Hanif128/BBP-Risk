@@ -35,13 +35,15 @@ if ($result->num_rows > 0) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Risk Matrix Chart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* Styling untuk chart container */
         .container {
@@ -57,13 +59,58 @@ if ($result->num_rows > 0) {
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1 class="text-center">Risk Matrix with Chart.js</h1>
-        <canvas id="riskMatrixChart"></canvas>
-    </div>
 
-    <a type="submit" href="layout.php" class="btn btn-primary">Kembali</a>
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand"><i class='bx bxs-bank icon'></i> GuardRisk™</a>
+        <ul class="side-menu">
+            <li><a href="layout.php"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            <li class="divider" data-text="main">Main</li>
+            <li><a href="form-risk.php"><i class='bx bxs-notepad icon'></i> Forms Risiko</a></li>
+            <li><a href="chart.php" class="active"><i class='bx bxs-chart icon'></i> Charts</a></li>
+            <li><a href="monitoring.php"><i class='bx bxs-widget icon'></i> Monitoring</a></li>
+            <li><a href="man-risk.php"><i class='bx bx-table icon'></i> Tables</a></li>
+            <li class="divider" data-text="table and forms"> Users</li>
+            <li><a href="#"><i class='bx bxs-happy icon'></i> All Users</a></li>
+
+        </ul>
+    </section>
+
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <a href="#" class="nav-link">
+                <i class='bx bxs-bell icon'></i>
+                <span class="badge">5</span>
+            </a>
+            <a href="#" class="nav-link">
+                <i class='bx bxs-message-square-dots icon'></i>
+                <span class="badge">8</span>
+            </a>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="text-center">Risk Matrix</h1>
+            <canvas id="riskMatrixChart"></canvas>
+        </div>
+
+    </section>
 
     <script>
         // Data yang diambil dari PHP dan diteruskan ke Chart.js
@@ -83,9 +130,9 @@ if ($result->num_rows > 0) {
                 }]
             },
             options: {
-                responsive: true,  // Membuat chart responsif
-                maintainAspectRatio: true,  // Mempertahankan rasio aspect
-                aspectRatio: 1,  // Memastikan rasio 1:1 antara sumbu X dan Y
+                responsive: true, // Membuat chart responsif
+                maintainAspectRatio: true, // Mempertahankan rasio aspect
+                aspectRatio: 1, // Memastikan rasio 1:1 antara sumbu X dan Y
                 plugins: {
                     legend: {
                         position: 'top'
@@ -102,18 +149,18 @@ if ($result->num_rows > 0) {
                     x: {
                         type: 'linear',
                         position: 'bottom',
-                        min: 0,  // Mengatur nilai minimum X menjadi 0
-                        max: 6,  // Mengatur nilai maksimum X menjadi 6
-                        stepSize: 1,  // Kelipatan 1
+                        min: 0, // Mengatur nilai minimum X menjadi 0
+                        max: 6, // Mengatur nilai maksimum X menjadi 6
+                        stepSize: 1, // Kelipatan 1
                         title: {
                             display: true,
                             text: 'Likelihood (Kemungkinan)'
                         }
                     },
                     y: {
-                        min: 0,  // Mengatur nilai minimum Y menjadi 0
-                        max: 6,  // Mengatur nilai maksimum Y menjadi 6
-                        stepSize: 1,  // Kelipatan 1 (0,1,2,3,4,5,6)
+                        min: 0, // Mengatur nilai minimum Y menjadi 0
+                        max: 6, // Mengatur nilai maksimum Y menjadi 6
+                        stepSize: 1, // Kelipatan 1 (0,1,2,3,4,5,6)
                         title: {
                             display: true,
                             text: 'Impact (Dampak)'
@@ -123,8 +170,10 @@ if ($result->num_rows > 0) {
             }
         });
     </script>
-    
+
+    <script src="scripts.js"></script>
 </body>
+
 </html>
 
 <?php
